@@ -1,9 +1,3 @@
-/* ===
-ml5 Example
-Image classification using MobileNet and p5.js
-This example uses a callback pattern to create the classifier
-=== */
-
 // Initialize the Image Classifier method with MobileNet. A callback needs to be passed.
 let classifier;
 
@@ -12,17 +6,20 @@ let img;
 
 function preload() {
   classifier = ml5.imageClassifier('MobileNet', modelReady);
-  img = loadImage('images/welle.jpeg');
+  img = loadImage('../images/welle.jpeg');
 }
 
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(1000, 600);
   classifier.classify(img, gotResult);
   image(img, 0, 0);
+  let div = createDiv('Loading Model...');
+  div.addClass('loading');
 }
 
 function modelReady() {
-    console.log('model is ready!')
+  let div = createDiv('Model Ready!');
+  div.addClass('loaded');
 }
 
 // A function to run when we get any errors and the results
