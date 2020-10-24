@@ -4,10 +4,15 @@ let video;
 let label = 'test';
 let ukeButton;
 let whistleButton;
+let whistletButton;
 let trainButton;
+let config = {
+    numLabels: 3
+  };
 
 function modelReady() {
   console.log('Model is ready!!!');
+  console.log(mobilenet);
 }
 
 function videoReady() {
@@ -35,21 +40,26 @@ function gotResults(error, result) {
 }
 
 function setup() {
-  createCanvas(320, 270);
+  createCanvas(720, 670);
   video = createCapture(VIDEO);
   video.hide();
   background(0);
-  mobilenet = ml5.featureExtractor('MobileNet', modelReady);
+  mobilenet = ml5.featureExtractor('MobileNet', config, modelReady);
   classifier = mobilenet.classification(video, videoReady);
 
-  ukeButton = createButton('close hand');
+  ukeButton = createButton('perro');
   ukeButton.mousePressed(function() {
-    classifier.addImage('close hand');
+    classifier.addImage('perro');
   });
 
-  whistleButton = createButton('open hand');
+  whistleButton = createButton('state 2');
   whistleButton.mousePressed(function() {
-    classifier.addImage('open hand');
+    classifier.addImage('State 2');
+  });
+
+  whistletButton = createButton('state 3');
+  whistletButton.mousePressed(function() {
+    classifier.addImage('State 3');
   });
 
   trainButton = createButton('train');
@@ -60,7 +70,11 @@ function setup() {
 
 function draw() {
   background(0);
-  image(video, 0, 0, 320, 240);
+  push();
+  translate(width,0);
+  scale(-1, 1);
+  image(video, 0, 0, 720, 640);
+  pop();
   fill(255);
   textSize(16);
   text(label, 10, height - 10);
