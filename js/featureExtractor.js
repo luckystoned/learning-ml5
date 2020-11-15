@@ -47,9 +47,9 @@ function setup() {
   mobilenet = ml5.featureExtractor('MobileNet', config, modelReady);
   classifier = mobilenet.classification(video, videoReady);
 
-  ukeButton = createButton('perro');
+  ukeButton = createButton('state 1');
   ukeButton.mousePressed(function() {
-    classifier.addImage('perro');
+    classifier.addImage('State 1');
   });
 
   whistleButton = createButton('state 2');

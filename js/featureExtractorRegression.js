@@ -45,7 +45,7 @@ function setup() {
 
   slider = createSlider(0, 1, 0.5, 0.01);
 
-  addButton = createButton('add example image');
+  addButton = createButton('add state');
   addButton.mousePressed(function() {
     predictor.addImage(slider.value());
   });
