@@ -27,7 +27,6 @@ function gotResults(error, result) {
   if (error) {
     console.error(error);
   } else {
-    // updated to work with newer version of ml5
     // value = result;
     value = result.value;
     predictor.predict(gotResults);
