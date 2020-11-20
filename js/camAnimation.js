@@ -29,6 +29,7 @@ function gotResults(error, result) {
     value = result.value;
     predictor.predict(gotResults);
     console.log(result);
+    slider.value(result);
   }
 }
 
@@ -88,7 +89,7 @@ function setup() {
 
 function draw() {
 
-  value = slider.value();
+  //value = slider.value();
   
   image(video, 0, 0, 320, 240);
 
