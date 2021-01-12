@@ -3,7 +3,7 @@ let video;
 let label = "waiting...";
 // The classifier
 let classifier;
-let modelURL = 'https://teachablemachine.withgoogle.com/models/ykawHOnvf/';
+let modelURL = 'https://teachablemachine.withgoogle.com/models/FX7M1xJF-/';
 
 //SNAKE
 let snake;
@@ -49,11 +49,11 @@ function foodLocation() {
 
 function controlSnake() {
 
-  if (label === "Left") {
+  if (label === "Right") {
 
     snake.setDir(-1, 0);
 
-  } else if (label === "Right") {
+  } else if (label === "Left") {
 
     snake.setDir(1, 0);
 
